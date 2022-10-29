@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>后台登录</title>
+	<link href="__STATIC__/admin/css/admin.css" rel="stylesheet" />
+	<script src="__STATIC__/admin/js/jquery-3.3.1.js"></script>
+</head>
+<body class="login">
+	<div class="login_box">
+	<form method="post" action="">
+		<h1>欢迎访问后台</h1>
+		<table>
+			<tr><th width="80">用户名：</th><td><input class="input" type="text" name="admin_name" /></td></tr>
+			<tr><th>密　码：</th><td><input class="input" type="password" name="admin_pwd" /></td></tr>
+			<!--<tr><th>验证码：</th><td><input class="input" type="text" name="verify" /></td></tr>
+			<tr><td>&nbsp;</td><td><img src="__ROOT__/index.php/admin/login/getCaptcha" id='captcha' style="cursor: pointer;"/></td></tr>-->
+			<tr><td>&nbsp;</td><td><input class="login_btn" type="submit" value="登录" name='sm'/></td></tr>
+		</table>
+	</form>
+	</div>
+	<!--<script type="text/javascript">
+	$("#captcha").click(function(){
+			$(this).attr('src', "__ROOT__/index.php/admin/login/getCaptcha");
+			});
+	</script>-->
+</body>
+</html>

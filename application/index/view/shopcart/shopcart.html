@@ -1,0 +1,155 @@
+<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="__ROOT__/index.php/index/">主页</a> <span class="divider">/</span></li>
+		<li class="active"> 购物车</li>
+    </ul>
+	<h3 class='cart-data'>  购物车 [ <small ><span class='count'><{session('count')}>件商品</span> </small>]<a href="__ROOT__/index.php/index/products" class="btn btn-large pull-right"><i class="icon-arrow-left"></i>继续购物 </a></h3>	
+	<hr class="soft">
+	
+	        <{if $cart==null}>		
+	<h1>您的购物车里还没有商品哦，赶快去用精美的商品来填满它吧！！！！</h1><br/>
+	<{else}>
+	<table class="table table-bordered" >
+              <thead>
+                <tr>
+                  <th>商品</th>
+                  <th>商品名</th>
+                  <th>数量</th>
+				  <th>价格</th>
+                  <th>卖方</th>
+                  <th>校区</th>
+                  <th>详情</th>
+				</tr>
+              </thead>
+              <tbody id="shopcart">
+              <{foreach $cart as $row}>
+	                <tr id="<{$row['iid']}>" class="item">
+	                  <td> <img width="60" src="__STATIC__/imgs/<{$row['img1']}>-1.jpg" alt=""></td>
+	                  <td><{$row['iname']}></td>
+					  <td>
+						<div class="input-append">
+						<input class="span1 item-num" style="max-width:34px;height:25px;" value="<{$row['iid']}>" id="appendedInputButtons" size="16" type="text">
+						<button class="btn" type="button"><i class="icon-minus"></i></button>
+						<button class="btn" type="button"><i class="icon-plus"></i></button>
+						<button class="btn btn-danger" type="button"><i class="icon-remove icon-white" mid="<{session('uid')}>"></i></button>
+						</div>
+					  </td>
+	                  <td class="item-price"><{$row['iprice']}></td>
+	                  <td class="item-discount">小明</td>
+	                  <td class="item-freight">沙河</td>
+	                  <td class="item-addTime">详情</td>
+	                  
+	                </tr>
+                <{/foreach}>
+				 <tr>
+                  <td colspan="6" style="text-align:right">总共  =</td>
+                  <td class="label label-important"  id='monery'>66.1</td>
+                </tr>
+				</tbody>
+            </table>			
+	<a href="__ROOT__/index.php/index/products" class="btn btn-large"><i class="icon-arrow-left"></i>继续购物 </a>
+	<!--<a href="#" id='purchase' class="btn btn-large pull-right ">购&nbsp;买 <i class="icon-arrow-right"></i></a>-->
+	 <{/if}>
+	 
+	<script type="text/javascript">
+	$("#shopcart .item-num").each(function(){   //减少购物车商品数量
+			$(this).change(function(i){
+				calCost();	
+				}); 
+		});
+	$("#shopcart .icon-minus").each(function(){   //减少购物车商品数量
+			$(this).click(function(i){
+				num=Number($(this).parent().siblings('.span1').attr('value'));
+					if(num>0){
+						$(this).parent().siblings('.span1').attr('value',num-1);
+					}
+				calCost();	
+				}); 
+		});
+	$("#shopcart .icon-plus").each(function(){   //增加购物车商品数量
+			$(this).click(function(i){
+				num=Number($(this).parent().siblings('.span1').attr('value'));
+				$(this).parent().siblings('.span1').attr('value',num+1);
+				calCost();
+				}); 
+		});
+	$("#shopcart .icon-remove").each(function(){   //删除购物车商品
+			$(this).click(function(i){
+				if(confirm("你确定要删除吗？")){
+					$gid=$(this).closest(".item").attr("id");
+					$mid=$(this).attr("mid");
+					$item=$(this).closest(".item");
+					$addTime=$item.children('.item-addTime').text();
+					$.ajax({
+	                        url: "__ROOT__/index.php/index/shopcart/delcart",
+	                        data: { "gid":$gid,"mid":$mid,"addTime":$addTime,},
+	                        dataType:"json",
+	                        success: function (msg) {
+	                        	if (msg!=0){
+	                        		console.log(msg);
+	                        		$item.remove();
+	                        		calCost();
+	                        		$(".cart-data .count").text(msg[0]+'件商品');
+	                        		$(".cart-data .sum").text('￥'+msg[1]); 
+	                        		
+	                        	}
+	                        },
+	                    });
+					}
+				});
+		});
+	function sum(){
+		$("#shopcart tr").each(function(){
+		if(Number($(this).find('.item-num').attr('value'))>0){
+			val=(Number($(this).find('.item-price').text())-Number($(this).find('.item-discount').text()))*Number($(this).find('.item-num').attr('value'))+Number($(this).find('.item-freight').text());
+			$(this).find(".cost").text(val);
+		}
+		else{
+			$(this).find(".cost").text('0');
+		}
+		});
+	}
+	function calCost(){
+		sum();
+		var totalPrice = 0;
+		$("#shopcart tr").each(function(n){
+	        totalPrice += Number($(this).find(".cost").text());
+		});
+        $("#monery").text(totalPrice);
+	}
+	window.onload = function(){   
+　　   calCost();
+	}
+	
+	$("#purchase").click(function(){
+		if(confirm("你确定要购买吗？")){
+			$("#shopcart tr").each(function(n){
+					if(Number($(this).find('.item-num').attr('value'))>0){
+						$gid=$(this).closest(".item").attr("id");
+						$mid=Number($(this).find('.icon-remove').attr("mid"));
+						$price=Number($(this).find('.item-price').text())-Number($(this).find('.item-discount').text());
+						$num=Number($(this).find('.item-num').attr('value'));
+						$.ajax({
+	                        url: "__ROOT__/index.php/index/shopcart/dopurchase",
+	                        type:"GET",
+	                        data: { "gid":$iid,"mid":$uid,"iprice":$price,},
+	                        dataType:"json",
+	                        success: function (msg) {
+	                        if (msg!=0){
+	                        		window.location.replace('__ROOT__/index.php/index/shopcart/purchase');
+	                        	}
+	                        },
+	                    });
+					}
+				});
+			}
+		}); 
+	
+
+	
+	
+	</script>
+</div>
+<{/block}>

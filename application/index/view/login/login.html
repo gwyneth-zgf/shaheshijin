@@ -1,0 +1,70 @@
+<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="index.html">主页</a> <span class="divider">/</span></li>
+		<li class="active">登录</li>
+    </ul>
+	<h3> 登录</h3>	
+	<hr class="soft"/>
+	
+	<div class="row">
+		<div class="span4">
+			<div class="well">
+			<h5>创建你的账户</h5><br/>
+			请输入一个您常用的邮箱地址来创建账户<br/><br/><br/>
+			<form method="post" action="">
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail0" >邮箱地址</label>
+				<div class="controls">
+				  <input style='height:30px;width:270px;' class="span3"  type="text" id="inputEmail0" placeholder="Email" name='email1'>
+				</div>
+			  </div>
+			  <div class="controls">
+			  <button type="submit" class="btn block" name='create'>创建</button>
+			  </div>
+			</form>
+		</div>
+		</div>
+		<div class="span1"> &nbsp;</div>
+		<div class="span4">
+			<div class="well">
+			<h5>已经有账户 ?</h5>
+			<form method="post" action="">
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail1">邮箱</label>
+				<div class="controls">
+				  <input style='height:30px;width:270px;' class="span3"  type="text" id="inputEmail1" placeholder="Email" name='email2'>
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword1">密码</label>
+				<div class="controls">
+				  <input style='height:30px;width:270px;' type="password" class="span3"  id="inputPassword1" placeholder="Password" name='pwd'>
+				</div>
+			  </div>
+			  <!--验证码部分
+			  <div class="control-group">
+			  <img src="__ROOT__/index.php/index/login/getCaptcha" onclick="" id='captcha' style="cursor: pointer;">
+				<div class="controls">
+			  		<label class="control-label" for="inputPassword1">验证码</label>
+			  		<input style='height:30px;width:270px;' type="text" name="captcha">
+				</div>
+			  </div>-->
+
+			  <div class="control-group">
+				<div class="controls">
+				  <button type="submit" class="btn" name='sm'>登录</button>
+				</div>
+			  </div>
+			</form>
+		</div>
+		</div>
+	</div>	
+</div>
+<script type="text/javascript">
+	$("#captcha").click(function(){
+			$(this).attr('src', "__ROOT__/index.php/index/login/getCaptcha");
+			});
+</script>
+<{/block}>

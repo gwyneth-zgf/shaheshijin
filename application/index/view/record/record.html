@@ -1,0 +1,46 @@
+<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="__ROOT__/index.php/index/">主页</a> <span class="divider">/</span></li>
+		<li class="active"> 购买记录</li>
+    </ul>
+	<h3 class='cart-data'>  购买记录 [ <small ><span class='count'><{$recordCount}>条记录</span> </small>]<a href="__ROOT__/index.php/index/products" class="btn btn-large pull-right"><i class="icon-arrow-left"></i>继续购物 </a></h3>	
+	<hr class="soft">
+	<{if $recordCount==0}>		
+	<h1>您还没有购买过商品哦，赶快去选购商品吧！！！！</h1><br/>
+	<{else}>	
+	<table class="table table-bordered" >
+              <thead>
+                <tr>
+                  <th>商品</th>
+                  <th>商品名</th>
+                  <th>买方</th>
+				  <th>卖方</th>
+                  <th>价格</th>
+                  <th>购买时间</th>
+				</tr>
+              </thead>
+
+              <tbody id="shopcart">
+              <{foreach $record as $row}>
+	                <tr id="<{$row['iid']}>" class="item">
+	                  <td> <img width="60" src="__STATIC__/imgs/<{$row['img1']}>-1.jpg" alt=""></td>
+	                  <td><{$row['iname']}></td>
+					  <td><{$user_buy[<{$row['iid']}>]}></td>
+	                  <td class="item-price"><{$user_sale[<{$row['iid']}>]}></td>
+	                  <td class='cost'><{$row['iprice']}></td>
+	                  <td ><{$row['time']}></td>
+	                </tr>
+                <{/foreach}>	
+				</tbody>
+            </table>   
+<div class="pagination" style='text-align:center;'>
+	<br class="clr"/>
+	<{$page}>
+</div>		
+	<a href="__ROOT__/index.php/index/products" class="btn btn-large pull-right"><i class="icon-arrow-left"></i>继续购物 </a>
+	<hr class="soft">	
+</div>
+<{/if}>
+<{/block}>

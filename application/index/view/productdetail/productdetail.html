@@ -1,0 +1,182 @@
+﻿<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+    <li><a href="__ROOT__/index.php/index/">主页</a> <span class="divider">/</span></li>
+    <li><a href="__ROOT__/index.php/index/products/index">商品</a> <span class="divider">/</span></li>
+    <li class="active">商品详情</li>
+    </ul>	
+	<div class="row">	  
+			<div id="gallery" class="span3">
+            <a href="__STATIC__/imgs/<{$data['img1']}>-1.jpg" title="Fujifilm FinePix S2950 Digital Camera">
+				<img src="__STATIC__/imgs/<{$data['img1']}>-1.jpg" style="width:100%" alt="Fujifilm FinePix S2950 Digital Camera"/>
+            </a>
+			<div id="differentview" class="moreOptopm carousel slide">
+                <div class="carousel-inner">
+                  <div class="item active">
+                   <a href="__STATIC__/imgs/<{$data['img1']}>-1.jpg"> <img style="width:30%" src="__STATIC__/imgs/<{$data['img1']}>-1.jpg" alt="商品图片"/></a>
+                   <a href="__STATIC__/imgs/<{$data['img1']}>-2.jpg"> <img style="width:30%" src="__STATIC__/imgs/<{$data['img1']}>-2.jpg" alt="商品图片"/></a>
+                   <a href="__STATIC__/imgs/<{$data['img1']}>-3.jpg" > <img style="width:30%" height="87" width="87"src="__STATIC__/imgs/<{$data['img1']}>-3.jpg" alt="商品图片"/></a>
+                  </div>
+                  <div class="item">
+                   <a href="__STATIC__/imgs/<{$data['img1']}>-1.jpg" > <img style="width:29%" src="__STATIC__/imgs/<{$data['img1']}>-1.jpg" alt="商品图片"/></a>
+                   <a href="__STATIC__/imgs/<{$data['img1']}>-2.jpg"> <img style="width:29%" src="__STATIC__/imgs/<{$data['img1']}>-2.jpg" alt="商品图片"/></a>
+                   <a href="__STATIC__/imgs/<{$data['img1']}>-3.jpg"> <img style="width:29%" src="__STATIC__/imgs/<{$data['img1']}>-3.jpg" alt="商品图片"/></a>
+                  </div>
+                </div>
+              <!--  
+			  <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a> 
+			  -->
+              </div>
+			  
+			 <!--<div class="btn-toolbar">
+			  <div class="btn-group">
+				<span class="btn"><i class="icon-envelope"></i></span>
+				<span class="btn" ><i class="icon-print"></i></span>
+				<span class="btn" ><i class="icon-zoom-in"></i></span>
+				<span class="btn" ><i class="icon-star"></i></span>
+				<span class="btn" ><i class=" icon-thumbs-up"></i></span>
+				<span class="btn" ><i class="icon-thumbs-down"></i></span>
+			  </div>
+			</div>-->
+			</div>
+			<div class="span6">
+				<h3><{$data['iname']}>  </h3>
+				<!--<small>- (14MP, 18x Optical Zoom) 3-inch LCD</small>-->
+				<hr class="soft"/>
+				<form class="form-horizontal qtyFrm" method="post" action="__ROOT__/index.php/index/productdetail/addTocart">
+				  <div class="control-group">
+					<label class="control-label"><span>￥<{$data['iprice']}></span></label>
+					<div class="controls">
+					<!--<input type="number" min="1" class="span1" placeholder="1" name='num' value='1'/>-->
+					<input type="hidden" name="gid" value="<{$data['iid']}>"/>
+					  <button type="submit" class="btn btn-large btn-primary pull-right" name='add'> 加入购物车 <i class=" icon-shopping-cart"></i></button>
+					</div>
+				  </div>
+				</form>
+				
+				<hr class="soft"/>
+				<!--<{if $data['iid']}>
+				<h3 style="color:red; font-weight:bold;">折扣：￥<{$data['iid']}> </h3>
+				<{/if}>-->
+				<h4>卖方：小明</h4>
+				<h4>校区：沙河</h4>
+
+				<h4>联系方式：</h4>
+				<h5>Tel：18806026647</h5>
+				<h5>QQ：1796612074</h5>
+				<h5>Wechat：wxid_457987237</h5>
+				
+				<form class="form-horizontal qtyFrm pull-right">
+				  <div class="control-group">
+					<!--<label class="control-label"><span>规格</span></label>
+					<div class="controls">
+					  <select class="span2">
+					  	  <option>畅玩版</option>
+						  <option>青春版</option>
+						  <option>旗舰版</option>
+						  <option>尊享版</option>
+						</select>
+					</div>--->
+				  </div>
+				</form>
+				<hr class="soft clr"/>
+				<p>
+				<!--<{implode(" ",$data['idescription'])}>-->
+				
+				</p>
+				<!--<a class="btn btn-small pull-right" href="#detail">更多详情</a>-->
+				<br class="clr"/>
+			<a href="#" name="detail"></a>
+			<hr class="soft"/>
+			</div>
+			
+			<div class="span9">
+            <ul id="productDetail" class="nav nav-tabs">
+              <li class="active"><a href="#home" data-toggle="tab">商品详情</a></li>
+              <li><a href="#profile" data-toggle="tab">相关商品</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane fade active in" id="home">
+			  <h4>商品详情</h4>
+                <table class="table table-bordered">
+				<tbody>
+				<tr class="techSpecRow"><th colspan="2">具体信息</th></tr>
+				<{foreach $data['idescription'] as $d}>
+				<tr class="techSpecRow"><td class="techSpecTD1">&nbsp;&nbsp;《微积分》是20世纪80年代委托中国人民大学赵树螈教授主持编写的高等学校财经专业试用教材中的一本，是认定的非常早的高等学校文科教材之一，1981年在中国人民大学出版社出版后，进行了多次修订，出版近四十年来深受广大教师和学生的欢迎。 <br>    
+					&nbsp;&nbsp;《微积分（第五版）/经济应用数学基础》自出版以来，一直保持很大的年度发行量，说明《微积分（第五版）/经济应用数学基础》始终能够满足读者的需要，为社会主义经济建设与全国大学数学教学、教改做出了一定的贡献，对此编者深表荣幸！   <br>  
+					&nbsp;&nbsp;随着技术的发展，在出版和教育融合变革的大背景下，编者在中国人民大学出版社的积极协助下进行了本次修订工作。《微积分》（第五版）以《教育信息化2.0行动计划》为指导，运用大数据和人工智能技术，将传统教材和多种形式的数字内容有机融合，打造了以读者为中心的新形态教材并提供丰富的数字化学习资源，包括重难点的名师视频讲解、重要习题的名师视频解析、随堂测试、名校期末试题库等，目前已经陆续上线。我们希望通过这种数字化手段改进教学的创新，从教与学两方面使得读者能够高效率地学习！
+					 </td></tr>
+				<{/foreach}>
+				</tbody>
+				</table>
+				
+				
+              </div>
+		<div class="tab-pane fade" id="profile">
+		<div id="myTab" class="pull-right">
+		 <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
+		 <a href="#blockView" data-toggle="tab"><span class="btn btn-large btn-primary"><i class="icon-th-large"></i></span></a>
+		</div>
+		<br class="clr"/>
+		<hr class="soft"/>
+		<div class="tab-content">
+			<div class="tab-pane" id="listView">
+			<{foreach $related as $row}>
+				<div class="row">	  
+					<div class="span2">
+					<img src="__STATIC__/imgs/<{$row['img1']}>-1.jpg" alt=""/>
+					</div>
+					<div class="span4">
+						<h3><{$row['iname']}></h3>				
+						<hr class="soft"/>
+						<p>
+						<{$row['idescription']}>
+						</p>
+						<a class="btn btn-small pull-right" href="__ROOT__/index.php/index/productdetail/index?gid=<{$row['iid']}>">查看</a>
+						<br class="clr"/>
+					</div>
+					<div class="span3 alignR">
+						<h3> <{$row['iprice']}></h3>
+						</label><br/>
+						<div class="btn-group">
+						<a href="__ROOT__/index.php/index/productdetail/index?iid=<{$row['iid']}>" class="btn btn-large btn-primary"> 加入 <i class=" icon-shopping-cart"></i></a>
+						<a href="__ROOT__/index.php/index/productdetail/index?iid=<{$row['iid']}>" class="btn btn-large"><i class="icon-zoom-in"></i></a>
+						</div>
+					</div>
+			</div>
+			<hr class="soft"/>
+			<{/foreach}>
+		</div>
+			<div class="tab-pane active" id="blockView">
+				<ul class="thumbnails">
+					<{foreach $related as $row}>
+					<li class="span3">
+					  <div class="thumbnail">
+						<a href="__ROOT__/index.php/index/productdetail/index?iid=<{$row['iid']}>"><img src="__STATIC__/imgs/<{$row['img1']}>-1.jpg" alt="" width='160' height='160'/></a>
+						<div class="caption">
+						  <h5><{$row['iname']}></h5>
+						  <p> 
+							销量：0
+						  </p>
+						  <h4 style="text-align:center"><a class="btn" href="__ROOT__/index.php/index/productdetail/index?iid=<{$row['iid']}>"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">加入 <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">&euro;<{$row['iprice']}> </a></h4>
+						</div>
+					  </div>
+					</li>
+				<{/foreach}>
+				  </ul>
+			<hr class="soft"/>
+			</div>
+		</div>
+				<br class="clr">
+					 </div>
+		</div>
+          </div>
+	</div>
+</div>
+
+
+
+
+<{/block}>

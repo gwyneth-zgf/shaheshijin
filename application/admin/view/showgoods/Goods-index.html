@@ -1,0 +1,74 @@
+<{extends file="adminmodel.html"}>
+<{block name="data"}>
+<div id="content">
+		<div class="item"><div class="title">商品列表</div>
+<div class="data-list clear">
+<form action="" class="form-horizontal">
+	请选择商品分类：
+	<select name="cid" onchange="check(this.value);">
+	<option value="所有">所有</option>
+	<{foreach $kinds as $key=>$value}>
+		<option value="<{$key}>"><{$key}></option>
+		<{foreach $value as $row}>
+			<option value="<{$row['cid']}>">----<{$row['cname']}></option>
+		<{/foreach}>
+	<{/foreach}>
+	</select>
+	请选择排序方式：
+	<select name="order" onchange="check(this.value);">
+		<option value='1'>新品</option>
+        <option value='2'>价格升序</option>
+        <option value='3'>价格降序</option>
+	</select>
+	<button type='submit'>确定</button>
+</form>
+	
+	<table border="1" style="text-align:center;">
+		<tr><th width="80">商品编号</th><th>商品名</th><th width="80">是否在售</th><th width="120">操作</th></tr>
+		<{foreach $goods as $row}>
+		<tr class="item">
+			<td><{$row['iid']}></td>
+			<td><{$row['iname']}></td>
+			
+			<td class="center">
+			<{if $row['status']==yes}>
+			<{'是'}>
+			<{else}>
+			<{'否'}>
+			<{/if}>
+			</td>
+
+			<td class="center"><a href="__ROOT__/index.php/admin/showgoods/showdetails?iid=<{$row['iid']}>">查看</a> 
+			<a class='del' iid="<{$row['iid']}>" style="cursor: pointer;">删除</a></td></tr>
+		</tr>
+		<{/foreach}>	
+	</table>
+	<div class="pagination">
+	<{$page}>
+	<br class="clr"/>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	$(".del").each(function(){   //删除购物车商品
+			$(this).click(function(i){
+			$iid=$(this).attr("iid");
+			$item=$(this).closest(".item");
+				if(confirm("你确定要删除吗？")){					
+					$.ajax({
+	                        url: "__ROOT__/index.php/admin/showgoods/delgoods",
+	                        data: { "iid":$iid,},
+	                        dataType:"json",
+	                        success: function (msg) {
+	                        	if (msg!=0){
+	                        	console.log(msg);
+	                        		$item.remove();                       		
+	                        	}
+	                        },
+	                    });
+					}
+				});
+		});
+</script>
+<{/block}>

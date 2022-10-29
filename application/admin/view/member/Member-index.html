@@ -1,0 +1,27 @@
+<{extends file="adminmodel.html"}>
+<{block name="data"}>
+<div id="content">
+		<div class="item"><div class="title">用户列表</div>
+<div class="data-list clear">
+	<table border="1">
+		<tr><td>用户ID</td><td>用户姓名</td><td>学号</td><td>邮箱</td><td>QQ</td><td>操作</td></tr>
+		<{foreach $members as $row}>
+			<tr>
+				<td><{$row['uid']}></td>
+				<td><{$row['uname']}></td>
+				<td><{$row['unumber']}></td>
+				<td><{$row['uemail']}></td>	
+				<td><{$row['uqq']}></td>
+				<td><a href="__ROOT__/index.php/admin/member/detail?uid=<{$row['uid']}>">查看详情</a></td>
+			</tr>
+		<{/foreach}>	
+	</table>   
+		<div class="pagination">
+			<{$page}>
+			<br class="clr"/>
+		</div>
+	</div></div>
+</div>
+</div>
+</div>
+<{/block}>

@@ -1,0 +1,77 @@
+﻿<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="__ROOT__/index.php/index/">主页</a> <span class="divider">/</span></li>
+		<li class="active">注册</li>
+    </ul>
+	<h3> 注册</h3>	
+	<div class="well">
+	<form class="form-horizontal" method="post">
+		<h4>您的个人信息</h4>
+		 <div class="control-group">
+			<label class="control-label" for="inputLnam" >昵称 <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" id="inputLnam" placeholder="昵称" name='user'>
+			</div>
+		 </div>
+		<div class="control-group">
+		<label class="control-label" for="input_email">邮箱 <sup>*</sup></label>
+		<div class="controls">
+        <input type="email" id="input_email" placeholder="Email" value='<{$email}>' name='email'>
+		</div>
+	  </div>	  
+	<div class="control-group">
+		<label class="control-label" for="inputPassword1" >密码 <sup>*</sup></label>
+		<div class="controls">
+		  <input type="password" id="inputPassword1" placeholder="密码" name='pwd'>
+		</div>
+	  </div>	  
+	<div class="alert alert-block alert-error fade in">
+		<button type="button" class="close" data-dismiss="alert">×</button>
+		<strong>请准确填写上述各项信息
+	 </div>	
+
+		<h4>收货地址</h4>
+		<div class="control-group">
+			<label class="control-label" for="inputFname">真实姓名 <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" id="inputFname" placeholder="真实姓名" name='name'>
+			</div>
+		</div>		
+		<div class="control-group">
+			<label class="control-label" for="address">校区<sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" id="address" placeholder="请正确填写哦" name='add'/> <span>清水河/沙河</span>
+			</div>
+		</div>	
+		<div class="control-group">
+			<label class="control-label" for="postcode">学号 <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text" id="postcode" placeholder="学号"  name='number'/> 
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="aditionalInfo">其他信息</label>
+			<div class="controls">
+			  <textarea name="aditionalInfo" id="aditionalInfo" cols="26" rows="3">其他信息</textarea>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="mobile">QQ号 <sup>*</sup></label>
+			<div class="controls">
+			  <input type="text"  id="mobile" placeholder="QQ号" name='qq'/> 
+			</div>
+		</div>
+	
+	<div class="control-group">
+			<div class="controls">
+				<input type="hidden" name="email_create" value="1">
+				<input type="hidden" name="is_new_customer" value="1">
+				<input class="btn btn-large btn-success" type="submit" value="注册" name='register'/>
+			</div>
+		</div>		
+	</form>
+</div>
+</div>
+<{/block}>

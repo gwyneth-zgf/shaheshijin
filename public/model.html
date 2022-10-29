@@ -1,0 +1,468 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>沙河拾金</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">	
+<!-- Bootstrap style --> 
+    <link id="callCss" rel="stylesheet" href="__STATIC__/themes/bootshop/bootstrap.min.css" media="screen">
+    <link href="__STATIC__/themes/css/base.css" rel="stylesheet" media="screen">
+<!-- Bootstrap style responsive -->	
+	<link href="__STATIC__/themes/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="__STATIC__/themes/css/font-awesome.css" rel="stylesheet" type="text/css">
+<!-- Google-code-prettify -->	
+	<link href="__STATIC__/themes/js/google-code-prettify/prettify.css" rel="stylesheet">
+<!-- fav and touch icons -->
+    <link rel="shortcut icon" href="__STATIC__/themes/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="__STATIC__/themes/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="__STATIC__/themes/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="__STATIC__/themes/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="__STATIC__/themes/images/ico/apple-touch-icon-57-precomposed.png">
+	<style type="text/css" id="enject"></style>
+	<script src="__STATIC__/themes/js/jquery-3.3.1.js" type="text/javascript"></script>
+  <{block name="style"}>
+	<{$smarty.block.child}>
+<{/block}>
+  </head>
+<body>
+<div id="header">
+<div class="container">
+<div id="welcomeLine" class="row">
+	<div class="span6">
+	欢迎<strong> <{session('uuser')}></strong>
+	<a href="__ROOT__/index.php/index/login/logout"><span class="btn btn-mini btn-primary">退出登录  </span> </a> 
+	</div>
+	<div class="span6">
+	<div class="pull-right cart-data">
+		<a href="__ROOT__/index.php/index/record"><span class="btn btn-mini "><i class="icon-shopping-cart icon-white"></i> 购买记录  </span></a>
+		<span class="btn btn-mini sum">￥<{session('sum')}></span>
+		<a href="__ROOT__/index.php/index/login"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i> 购物车  </span> </a> 
+	</div>
+	</div>
+</div>
+<!-- Navbar ================================================== -->
+<div id="logoArea" class="navbar">
+<a id="smallScreen" data-target="#topMenu" data-toggle="collapse" class="btn btn-navbar">
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+</a>
+  <div class="navbar-inner">
+	  <!--LOCATION包裹 当前地区 和 隐藏地区表格-->
+	  <div class="LOCATION">
+		<div class="location">
+			<span class="xiaLa">我的地址</span>
+			<li class="fas fa-map-marker-alt"></li>
+			<a href="#" class="lf">四川</a>
+		</div>
+		<div class="dropdown-layer">
+			<div class="item">
+				<a href="#">北京</a>
+			</div>
+			<div class="item">
+				<a href="#">上海</a>
+			</div>
+			<div class="item">
+				<a href="#">天津</a>
+			</div>
+			<div class="item">
+				<a href="#">重庆</a>
+			</div>
+			<div class="item">
+				<a href="#">河北</a>
+			</div>
+			<div class="item">
+				<a href="#">山西</a>
+			</div>
+			<div class="item">
+				<a href="#">辽宁</a>
+			</div>
+			<div class="item">
+				<a href="#">河南</a>
+			</div>
+			<div class="item">
+				<a href="#">吉林</a>
+			</div>
+			<div class="item">
+				<a href="#">黑龙江</a>
+			</div>
+			<div class="item">
+				<a href="#">内蒙古</a>
+			</div>
+			<div class="item">
+				<a href="#">江苏</a>
+			</div>
+			<div class="item">
+				<a href="#">山东</a>
+			</div>
+			<div class="item">
+				<a href="#">安徽</a>
+			</div>
+			<div class="item">
+				<a href="#">浙江</a>
+			</div>
+			<div class="item">
+				<a href="#">福建</a>
+			</div>
+			<div class="item">
+				<a href="#">湖南</a>
+			</div>
+			<div class="item">
+				<a href="#">湖北</a>
+			</div>
+			<div class="item">
+				<a href="#">广东</a>
+			</div>
+			<div class="item">
+				<a href="#">广西</a>
+			</div>
+			<div class="item">
+				<a href="#">江西</a>
+			</div>
+			<div class="item">
+				<a href="#">四川</a>
+			</div>
+			<div class="item">
+				<a href="#">海南</a>
+			</div>
+			<div class="item">
+				<a href="#">云南</a>
+			</div>
+			<div class="item">
+				<a href="#">贵州</a>
+			</div>
+			<div class="item">
+				<a href="#">西藏</a>
+			</div>
+			<div class="item">
+				<a href="#">陕西</a>
+			</div>
+			<div class="item">
+				<a href="#">甘肃</a>
+			</div>
+			<div class="item">
+				<a href="#">青海</a>
+			</div>
+			<div class="item">
+				<a href="#">宁夏</a>
+			</div>
+			<div class="item">
+				<a href="#">新建</a>
+			</div>
+			<div class="item">
+				<a href="#">港澳</a>
+			</div>
+			<div class="item">
+				<a href="#">台湾</a>
+			</div>
+			<div class="item">
+				<a href="#">钓鱼岛</a>
+			</div>
+			<div class="item">
+				<a href="#">海外</a>
+			</div>
+			<div class="areamini_inter">
+				<div class="areamini_inter_split"></div>
+				<p class="areamini_inter_desc">地区专项版本</p>
+				<ul class="areamini_inter_list">
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">中国港澳</div>
+						</a>
+					</li>
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">中国台湾</div>
+						</a>
+					</li>
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">京东全球</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="areamini_inter">
+				<div class="areamini_inter_split"></div>
+				<p class="areamini_inter_desc">Available Sites</p>
+				<ul class="areamini_inter_list">
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">Global Site</div>
+						</a>
+					</li>
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">Сайт России</div>
+						</a>
+					</li>
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">Situs Indonesia</div>
+						</a>
+					</li>
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">Sitio de España</div>
+						</a>
+					</li>
+					<li class="areamini_inter_item">
+						<a class="areamini_inter_link" href="#">
+							<div class="areamini_inter_name">เว็บไซต์ประเทศไทย</div>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+    <a class="brand" href="__ROOT__/index.php/index/">
+		<img class="img_logo"src="__STATIC__/themes/images/logo.jpg" alt="Bootsshop">
+	</a>
+		<form class="form-inline navbar-search" method="get" action="__ROOT__/index.php/index/products">
+		<input id="srchFld" class="srchTxt" name='key' type="text" style="width:200px;height:30px">
+		  <select class="srchTxt" name='factor'>
+			<option value='所有'>所有</option>
+			<{foreach session('kinds') as $key=>$value}>
+			<option value='<{$key}>'><{$key}></option>
+	<{/foreach}>
+            
+		</select> 
+		<button type="submit" id="submitButton" name='search' class="btn btn-primary">搜索</button>
+		 
+    </form>
+    <ul id="topMenu" class="nav pull-right">
+	 <li class=""><a href="__ROOT__/index.php/index/addgoods">发布商品</a></li>
+	 <li class=""><a href="__ROOT__/index.php/index/contact">联系我</a></li>
+	 <li class="">
+	 <a href="__ROOT__/index.php/index/login" role="button"  style="padding-right:0"><span class="btn btn-large btn-success">登录</span></a>
+	</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+<!-- Header End====================================================================== -->
+
+<{block name="carouselBlk"}>
+	<{$smarty.block.child}>
+<{/block}>
+
+<div id="mainBody">
+	<div class="container">
+	<div class="row">
+<!-- Sidebar ================================================== -->
+	<div id="sidebar" class="span3">
+		<div class="well well-small cart-data"><a id="myCart"  href="__ROOT__/index.php/index/login"><img src="__STATIC__/themes/images/ico-cart.png" alt="cart"><span class='count'><{session('count')}>种商品</span>  <span class="badge badge-warning pull-right sum"><span class='sum'>￥<{session('sum')}></span></span></a></div>
+		<br>
+		<ul id="sideManu" class="nav nav-tabs nav-stacked">
+		<{foreach session('kinds') as $key=>$value}>
+			<li class="subMenu open"><a> <{$key}></a>
+				<ul>
+					<{foreach $value as $row}>
+						<li><a href="__ROOT__/index.php/index/products?cid=<{$row['cid']}>"><i class="icon-chevron-right"></i><{$row['cname']}></a></li>
+					<{/foreach}>
+				</ul>
+			</li>
+	<{/foreach}>
+		</ul>
+		<br>
+		<br>
+			<div class="thumbnail">
+			<h4 style='text-align:center; color:red;'>推荐榜</h4>
+				<img src="__STATIC__/imgs/ershou/books/1-1.jpg" title="Bootshop New Kindel" alt="Bootshop Kindel">
+				<div class="caption">
+				  <h5>普林斯顿微积分读本</h5>
+				    <h4 style="text-align:center"><a class="btn" href="__ROOT__/index.php/index/productdetail/index?iid=1"> <i class="icon-zoom-in"></i></a> <a class="btn" href="productdetail?iid=1">加入 <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="productdetail?iid=1">￥107</a></h4>
+				</div>
+			  </div><br><br>
+			<div class="thumbnail">
+				<!--<img src="__STATIC__/themes/images/payment_methods.png" title="Bootshop 支付方式" alt="Payments Methods">
+				<div class="caption">
+				  <h5>支付方式</h5>
+				</div>-->
+			  </div>
+	</div>
+<!-- Sidebar end=============================================== -->
+		
+		
+	<{block name="span9"}>
+		<{$smarty.block.child}>
+	<{/block}>
+		
+		</div>
+	</div>
+</div>
+<!-- Footer ================================================================== -->
+	<div id="footerSection">
+	<div class="container">
+		<div class="row">
+			<div class="span3">
+				<h4>账户</h4>
+				<br><br>
+				<a href="__ROOT__/index.php/index/login">你的账户</a>
+				<a href="__ROOT__/index.php/index/login">个人信息</a> 
+				<a href="__ROOT__/index.php/index/login">收货地址</a> 
+				<a href="__ROOT__/index.php/index/specialoffer">折扣信息</a>  
+				<a href="__ROOT__/index.php/index/record">购买记录</a>
+			 </div>
+			<div class="span3">
+				<h4>信息</h4>
+				<br><br>
+				<a href="__ROOT__/index.php/index/contact">联系我们</a>  
+				<a href="__ROOT__/index.php/index/register">注册</a>  
+				<a href="__ROOT__/index.php/index/legalnotice">法律信息</a>  
+				<a href="__ROOT__/index.php/index/tac">条款和条件</a> 
+				<a href="__ROOT__/index.php/index/faq">常问问题</a>
+			 </div>
+			<div class="span3">
+				<!--<h4>优惠</h4>
+				<br><br>
+				<a href="__ROOT__/index.php/index/index">新款商品</a> 
+				<a href="__ROOT__/index.php/index/index">畅销品</a>  
+				<a href="__ROOT__/index.php/index/specialoffer">特别优惠</a>  
+				<a href="#">生产商</a> 
+				<a href="#">供应商</a> -->
+			 </div>
+			<div id="socialMedia" class="span3 pull-right">
+				<h4>社交媒体 </h4>
+			<div style='float:left;'>
+	<div style='width:100px; height:100px;position:relative;'>
+		<img class='1' style='display:none;position:absolute;top:-30px;' width="100" height="100" src="__STATIC__/themes/images/qqma.jpg"/>
+	</div>
+&nbsp;&nbsp;<img class='2' width="60"  height="60" src="__STATIC__/themes/images/qq.png" title="QQ" alt="QQ"/>
+</div>
+<div style='float:left;'>
+	<div style='width:100px; height:100px;position:relative;' >
+		<img width="100" height="100" class='3' style='display:none;position:absolute;top:-30px;' src="__STATIC__/themes/images/weixinma.png"/>
+	</div>
+
+&nbsp;&nbsp;<img width="60" class='4' height="60" src="__STATIC__/themes/images/weixin.png" title="微信" alt="微信"/>
+</div>
+<div style='float:left;'>
+&nbsp;&nbsp;&nbsp;<br><br><br><br><br><a href="https://weibo.com/u/5703804590"><img width="60" height="60" src="__STATIC__/themes/images/weibo.png" title="微博" alt="微博"/></a> 
+</div>
+
+                <script>  
+                $(document).ready(function(){  
+                    $(".2").mouseover(function(){
+                    $(".1").show();}); 
+                    $(".2").mouseout(function(){$(".1").hide();});
+                    $(".4").mouseover(function(){$(".3").show();});  
+                    $(".4").mouseout(function(){$(".3").hide();});
+                });   
+                </script>  
+		 </div>
+         
+	</div><!-- Container End -->
+	</div>
+</div>
+<!-- Placed at the end of the document so the pages load faster ============================================= -->
+	<script src="__STATIC__/themes/js/jquery.js" type="text/javascript"></script>
+	<script src="__STATIC__/themes/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="__STATIC__/themes/js/google-code-prettify/prettify.js"></script>
+	
+	<script src="__STATIC__/themes/js/bootshop.js"></script>
+    <script src="__STATIC__/themes/js/jquery.lightbox-0.5.js"></script>
+	
+	<!-- Themes switcher section ============================================================================================= -->
+<div id="secectionBox">
+<link rel="stylesheet" href="__STATIC__/themes/switch/themeswitch.css" type="text/css" media="screen">
+	<div id="themeContainer">
+	<div id="hideme" class="themeTitle">主题更改</div>
+	<div class="themeName">默认 主题</div>
+	<div class="images style">
+	<a href="__STATIC__/themes/css/#" name="bootshop"><img src="__STATIC__/themes/switch/images/clr/bootshop.png" alt="bootstrap business templates" class="active"></a>
+	<a href="__STATIC__/themes/css/#" name="businessltd"><img src="__STATIC__/themes/switch/images/clr/businessltd.png" alt="bootstrap business templates" class=""></a>
+	</div>
+	<div class="themeName">皮肤</div>
+	<div class="images style">
+		<a href="__STATIC__/themes/css/#" name="amelia" title="Amelia"><img src="__STATIC__/themes/switch/images/clr/amelia.png" alt="bootstrap business templates" class="active"></a>
+		<a href="__STATIC__/themes/css/#" name="spruce" title="Spruce"><img src="__STATIC__/themes/switch/images/clr/spruce.png" alt="bootstrap business templates" class=""></a>
+		<a href="__STATIC__/themes/css/#" name="superhero" title="Superhero"><img src="__STATIC__/themes/switch/images/clr/superhero.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="cyborg"><img src="__STATIC__/themes/switch/images/clr/cyborg.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="cerulean"><img src="__STATIC__/themes/switch/images/clr/cerulean.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="journal"><img src="__STATIC__/themes/switch/images/clr/journal.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="readable"><img src="__STATIC__/themes/switch/images/clr/readable.png" alt="bootstrap business templates"></a>	
+		<a href="__STATIC__/themes/css/#" name="simplex"><img src="__STATIC__/themes/switch/images/clr/simplex.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="slate"><img src="__STATIC__/themes/switch/images/clr/slate.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="spacelab"><img src="__STATIC__/themes/switch/images/clr/spacelab.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="united"><img src="__STATIC__/themes/switch/images/clr/united.png" alt="bootstrap business templates"></a>
+		<p style="margin:0;line-height:normal;margin-left:-10px;display:none;"><small>These are just examples and you can build your own color scheme in the backend.</small></p>
+	</div>
+	<div class="themeName">背景颜色 </div>
+	<div class="images patterns">
+		<a href="__STATIC__/themes/css/#" name="pattern1"><img src="__STATIC__/themes/switch/images/pattern/pattern1.png" alt="bootstrap business templates" class="active"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern2"><img src="__STATIC__/themes/switch/images/pattern/pattern2.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern3"><img src="__STATIC__/themes/switch/images/pattern/pattern3.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern4"><img src="__STATIC__/themes/switch/images/pattern/pattern4.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern5"><img src="__STATIC__/themes/switch/images/pattern/pattern5.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern6"><img src="__STATIC__/themes/switch/images/pattern/pattern6.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern7"><img src="__STATIC__/themes/switch/images/pattern/pattern7.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern8"><img src="__STATIC__/themes/switch/images/pattern/pattern8.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern9"><img src="__STATIC__/themes/switch/images/pattern/pattern9.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern10"><img src="__STATIC__/themes/switch/images/pattern/pattern10.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern11"><img src="__STATIC__/themes/switch/images/pattern/pattern11.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern12"><img src="__STATIC__/themes/switch/images/pattern/pattern12.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern13"><img src="__STATIC__/themes/switch/images/pattern/pattern13.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern14"><img src="__STATIC__/themes/switch/images/pattern/pattern14.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern15"><img src="__STATIC__/themes/switch/images/pattern/pattern15.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern16"><img src="__STATIC__/themes/switch/images/pattern/pattern16.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern17"><img src="__STATIC__/themes/switch/images/pattern/pattern17.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern18"><img src="__STATIC__/themes/switch/images/pattern/pattern18.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern19"><img src="__STATIC__/themes/switch/images/pattern/pattern19.png" alt="bootstrap business templates"></a>
+		<a href="__STATIC__/themes/css/#" name="pattern20"><img src="__STATIC__/themes/switch/images/pattern/pattern20.png" alt="bootstrap business templates"></a>
+		 
+	</div>
+	</div>	
+</div>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+// Pattern Selector function//////////////////////////////////	
+	jQuery('.patterns a').click(function(e) {
+		e.preventDefault();
+			jQuery(this).parent().find('img').removeClass('active');
+			jQuery(this).find('img').addClass('active');
+
+			var name = jQuery(this).attr('name');
+			
+				jQuery('body').css('background', 'url(__STATIC__/themes/switch/images/pattern/'+name+'.png) repeat center center scroll');
+				jQuery('body').css('background-size', 'auto');
+	});
+// Style Selector function ////////////////////////////////////
+	jQuery('.style a').click(function(e) {
+		e.preventDefault();
+		jQuery(this).parent().find('img').removeClass('active');
+		jQuery(this).find('img').addClass('active');
+
+		var name = jQuery(this).attr('name');
+
+		if(name == 'green') {
+			jQuery('#callCss').attr('href', '');
+		} else {
+			jQuery('#callCss').attr('href', 'http://localhost:8080/mine/public/static/themes/'+name+'/bootstrap.min.css');
+		}
+
+	});
+	
+	
+
+
+	$('#hideme').click(function() {
+		$('#secectionBox').animate({
+		right:'-999'
+	  }, 500, function() {
+		// Animation complete.
+	  });
+	  
+	  $('#themesBtn').animate({
+		right:'0'
+	  }, 700, function() {
+		// Animation complete.
+	  }); 
+	});
+
+});
+</script>
+<span id="themesBtn"></span>
+</body></html>

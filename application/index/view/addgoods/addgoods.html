@@ -1,0 +1,32 @@
+<{extends file="model.html"}>
+<{block name="span9"}>
+<div id="content" style="margin-left: 100px; margin-top: 30px; width: 600px; float: left; padding: 30px; border-radius: 5%; background-color: rgba(255, 233, 137, 0.753);">
+		<div class="item"><div style="font-size: large; padding: 10px; color: rgb(255, 160, 52);">商品添加 - 请选择分类</div>
+<div class="data-list clear">
+<form method="post" enctype="multipart/form-data" action=''style="font-size: 15px; margin-left: 20px">
+	&nbsp;请选择商品分类：
+	<select name="cid" onchange="check(this.value);">
+	<{foreach $kinds as $key=>$value}>
+		<{foreach $value as $row}>
+			<option value="<{$row['cid']}>"><{$key}>----><{$row['cname']}></option>
+		<{/foreach}>
+	<{/foreach}>
+	</select>
+	<table style="margin-left: 30px;">
+		<tr><th>&nbsp;商品名：</th><td><input type="text" name="iname" /></td></tr>
+		<tr><th>商品价格：</th><td><input type="text" name="price" /></td></tr>
+		<tr><th>&nbsp;商品图片1：</th><td><input type="file" name="img[]" class="file" /><small>文件名应为1.jpg</small></td></tr>
+		<tr><th>&nbsp;商品图片2：</th><td><input type="file" name="img[]" class="file" /><small>文件名应为2.jpg</small></td></tr>
+		<tr><th>&nbsp;商品图片3：</th><td><input type="file" name="img[]" class="file" /><small>文件名应为3.jpg</small></td></tr>
+		<tr><th>是否支持议价：</th><td><select name="status"><option value="yes">是</option><option value="no">否</option></select></td></tr>
+		<tr><th>是否支持跨校区：</th><td><select name="status"><option value="yes">是</option><option value="no">否</option></select></td></tr>
+		<tr><th>商品描述：</th><td><textarea name="description"></textarea><small>不同字段之间用“++”分隔</small></td></tr>
+		
+		<tr class="tr_btn center">
+		<td colspan="2"> <input type="submit" value="确定" name='sm'/><input type="reset" value="重置" /></td>
+		</tr>
+	</table>
+</div>
+</div>
+</div>
+<{/block}>

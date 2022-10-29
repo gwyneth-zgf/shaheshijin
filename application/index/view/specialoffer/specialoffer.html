@@ -1,0 +1,52 @@
+<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="__ROOT__/index.php/index/">主页</a> <span class="divider">/</span></li>
+		<li class="active">特价商品</li>
+    </ul>
+	<h4> 特价商品<small class="pull-right"> 40+ 特价商品 </small></h4>	
+	<hr class="soft"/>
+	<form class="form-horizontal span6">
+		<div class="control-group">
+		  <label class="control-label alignL">排序 </label>
+			<select>
+              <option>新品</option>
+              <option>价格升序</option>
+              <option>价格降序</option>
+              <option>销量由高到低</option>
+            </select>
+		</div>
+	  </form>
+<br class="clr"/>
+<div class="tab-content">
+	<div class="tab-pane  active" id="blockView">
+		<ul class="thumbnails">
+		<{foreach $products as $value}>
+			<li class="span3">
+			  <div class="thumbnail">
+				<a href="productdetail?iid=<{$value['iid']}>"><img src="__STATIC__/imgs/<{$value['img1']}>-1.jpg" alt="" style='height:260px;width:260px'/></a>
+				<div class="caption">
+				  <a href="productdetail?iid=<{$value['iid']}>"><{mb_substr($value['iname'] , 0 , 37, 'utf-8')}></a>
+				  <p style="color:red; font-weight:bold;"> 
+					折扣：0
+				  </p>
+				  <h4 style="text-align:center"><a class="btn" href="productdetail?gid=<{$value['iid']}>"> <i class="icon-zoom-in"></i></a> <a class="btn" href="productdetail?gid=<{$value['iid']}>">加入 <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">￥<{$value['iprice']}></a></h4>
+				</div>
+			  </div>
+			</li>
+		<{/foreach}>
+		
+			
+		  </ul>
+
+
+	<hr class="soft"/>
+	</div>
+</div>
+	<div class="pagination" style="text-align:center;">
+	<{$page}>
+	<br class="clr"/>
+<br class="clr"/>
+</div>
+<{/block}>

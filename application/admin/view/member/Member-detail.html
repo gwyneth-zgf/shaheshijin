@@ -1,0 +1,43 @@
+<{extends file="adminmodel.html"}>
+<{block name="data"}>
+<div id="content">
+		<div class="item">
+		<div class="title">用户详细信息</div>
+<div class="data-list clear">
+	<table border="1">
+		<tr><td>用户ID</td><td>用户昵称</td><td>用户姓名</td><td>密码</td><td>学号</td><td>QQ</td><td>微信</td><td>邮箱</td><td>完成交易次数</td><td>校区</td></tr>
+		<tr>
+		<td><{$member['uid']}></td>
+		<td><{$member['uuser']}></td>
+		<td><{$member['uname']}></td>
+		<td><{$member['upwd']}></td>
+		<td><{$member['unumber']}></td>
+		<td><{$member['uqq']}></td>
+		<td><{$member['uwx']}></td>
+		<td><{$member['uemail']}></td>
+		<td><{$member['utime']}></td>
+		<td><{$member['uadd']}></td>
+		</tr>
+	</table>
+	<div class="title">用户购买记录</div>
+	<br>
+	<table border="1">
+		<tr><td>商品ID</td><td>商品名</td><td>价格</td><td>买方</td><td>卖方</td><td>交易时间</td></tr>
+		<{foreach $record as $row}>
+			<tr>
+			<td><{$row['iid']}></td>
+			<td><{$row['iname']}></td>
+			<td><{$row['iprice']}></td>
+			<td><{$uname[<{$row['iid']}>]['buy']}></td>
+			<td><{$uname[<{$row['iid']}>]['sale']}></td>
+			<td><{$row['time']}></td>
+			</tr>
+		<{/foreach}>
+	</table>
+	<div class="pagination">
+	<{$page}>
+	<br class="clr"/>
+</div>
+</div>
+	</div>
+<{/block}>

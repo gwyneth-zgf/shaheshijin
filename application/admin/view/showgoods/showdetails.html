@@ -1,0 +1,39 @@
+<{extends file="adminmodel.html"}>
+<{block name="data"}>
+<div id="content">
+		<div class="item"><div class="title">商品列表 - 查看商品</div>
+<div class="data-list clear">
+<form method="post" enctype="multipart/form-data" action=''>
+			<input type="hidden" value="16" name="cid" />
+	<table>
+		
+		<tr><th>商品名：</th><td colspan="2"><{$goods['iname']}></td></tr>
+		<tr><th>商品编号：</th><td colspan="2"><{$goods['iid']}></td></tr>
+		<tr><th>商品价格：</th><td colspan="2"><{$goods['iprice']}></td></tr>
+		<tr><th>商品发布者：</th><td colspan="2"><{$uname[0]}></td></tr>
+		<tr><th>是否支持议价：</th><td colspan="2"><{$goods['ibool']}></td></tr>
+		<!--<tr><th>商品库存：</th><td colspan="2"><input type="text" name="stock" value='<{$goods['iid']}>'/></td></tr>-->
+		<tr><th>商品图片1：</th><td><img src='__STATIC__/imgs/<{$goods["img1"]}>-1.jpg' alt='1.jpg' width='60'><td>  <!--<input type="file" name="img[]" class="file" /><small>文件名应为1.jpg</small>-->  </td></tr>
+		<tr><th>商品图片2：</th><td><img src='__STATIC__/imgs/<{$goods["img1"]}>-2.jpg' alt='2.jpg' width='60'><td>  <!--<input type="file" name="img[]" class="file" /><small>文件名应为2.jpg</small>-->  </td></tr>
+		<tr><th>商品图片3：</th><td><img src='__STATIC__/imgs/<{$goods["img1"]}>-3.jpg' alt='3.jpg' width='60'><td>  <!--<input type="file" name="img[]" class="file" /><small>文件名应为3.jpg</small>-->  </td></tr>
+		<tr><th>是否上架：</th><td colspan="2"><{$goods['status']}>
+		
+		<!--
+		<select name="status">
+		<{if $goods['status']==yes}>
+			<{'<option value="yes">是</option><option value="no">否</option>'}>
+			<{else}>
+			<{'<option value="no">否</option><option value="yes">是</option>'}>
+			<{/if}>
+		</select>-->
+		</td></tr>
+		<tr><th>商品描述：</th><td colspan="2"><{$goods['idescription']}></td></tr>
+				
+		<tr class="tr_btn center">
+			<td style='display:none;'><input type='text' name='thumb' value='<{$goods['img1']}>'></td>
+		</tr>
+	</table>
+</div>
+</div>
+</div>
+<{/block}>

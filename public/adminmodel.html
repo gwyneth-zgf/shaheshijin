@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理系统</title>
+	<link rel="shortcut icon" href="__STATIC__/themes/images/ico/favicon.ico">
+	<link id="callCss" rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.min.css" media="screen">
+	<link href="__STATIC__/admin/css/admin.css" rel="stylesheet" />
+	<script src="__STATIC__/admin/js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="top">
+	<h1 class="left">后台管理系统</h1>
+	<ul class="right">
+		<li>欢迎您&nbsp;<{session('admin_name')}></li>
+		<li>|</li><li><a href="__ROOT__/index.php/index/index/index" target="_blank">前台首页</a></li>
+		<li>|</li><li><a href="__ROOT__/index.php/admin/login/logout">退出登录</a></li>
+	</ul>
+</div>
+<div id="main">
+	<div id="menu" class="left">
+		<ul><li><a href="__ROOT__/index.php/admin/index/index" id="Index_index">后台首页</a></li>
+			<li><a href="__ROOT__/index.php/admin/showgoods/index?order=1" id="Goods_index">商品列表</a></li>
+			<li><a href="__ROOT__/index.php/admin/category/index" id="Category_index">商品分类</a></li>
+			<li><a href="__ROOT__/index.php/admin/member/index" id="Member_index">用户管理</a></li>
+		</ul>
+	</div>
+	  <{block name="data"}>
+	<{$smarty.block.child}>
+<{/block}>
+	
+</div>
+</body>
+</html>

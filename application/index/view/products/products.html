@@ -1,0 +1,74 @@
+<{extends file="model.html"}>
+<{block name="span9"}>
+<div class="span9">
+    <ul class="breadcrumb">
+		<li><a href="__ROOT__/index.php/index/">主页</a> <span class="divider">/</span></li>
+		<li class="active">商品</li>
+    </ul>
+	<h3> 商品 <small class="pull-right"> 600+ 现货商品 </small></h3>	
+	<hr class="soft"/>
+	<form class="form-horizontal span6">
+		<div class="control-group">
+		  <label class="control-label alignL">排序 </label>
+			<select onchange="check(this.value);">
+              <option>新品</option>
+              <option>价格升序</option>
+              <option>价格降序</option>
+              <option>销量由高到低</option>
+            </select>
+		</div>
+	  </form>
+<br class="clr"/>
+<div class="tab-content">
+	<div class="tab-pane  active" id="blockView">
+		<ul class="thumbnails">
+		<{foreach $products as $value}>
+			<li class="span3">
+			  <div class="thumbnail">
+				<a href="__ROOT__/index.php/index/productdetail?iid=<{$value['iid']}>"><img src="__STATIC__/imgs/<{$value['img1']}>-1.jpg" alt="" style='height:260px;width:260px'/></a>
+				<div class="caption">
+				  <a href="__ROOT__/index.php/index/productdetail?iid=<{$value['iid']}>"><{mb_substr($value['iname'] , 0 , 37, 'utf-8')}></a>
+				  <p> 
+					销量：<{$value['iid']}><!--销量先用id代替了，之后注释掉，或者改成浏览量-->
+				  </p>
+				  <h4 style="text-align:center"><a class="btn" href="__ROOT__/index.php/index/productdetail?iid=<{$value['iid']}>"> <i class="icon-zoom-in"></i></a> <a class="btn" href="__ROOT__/index.php/index/productdetail?iid=<{$value['iid']}>">加入 <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#">￥<{$value['iprice']}></a></h4>
+				</div>
+			  </div>
+			</li>
+		<{/foreach}>
+		  </ul>
+	<hr class="soft"/>
+	</div>
+</div>
+
+<div class="pagination" style="text-align:center;">
+	<{$page}>
+	<br class="clr"/>
+</div>
+<script type="text/javascript">  
+            function check(obj){
+            if(location.search){
+            	if(obj=="新品"){  
+                    window.location.replace(location.href+'&order=1');  
+                }else if(obj=="价格升序"){  
+                    window.location.replace(location.href+'&order=2');  
+                }else if(obj=="价格降序"){  
+                    window.location.replace(location.href+'&order=3');  
+                } else if(obj=="销量由高到低"){  
+                    window.location.replace(location.href+'&order=4');  
+                }
+            }
+            else{
+            	if(obj=="新品"){  
+                    window.location.replace(location.href+'?order=1');  
+                }else if(obj=="价格升序"){  
+                    window.location.replace(location.href+'?order=2');  
+                }else if(obj=="价格降序"){  
+                    window.location.replace(location.href+'?order=3');  
+                } else if(obj=="销量由高到低"){  
+                    window.location.replace(location.href+'?order=4');  
+                }
+            }       
+            }  
+</script>
+<{/block}>
